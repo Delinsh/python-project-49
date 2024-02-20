@@ -14,17 +14,19 @@ def random_even(num):
 game = True
 counter = 0
 
-while game:
+while game or counter != 3:
     number = random.randint(1, 100)
     print(f'Question: {number}')
     answer = input()
+
     if answer == random_even(number):
         print('Correct!')
         counter += 1
-    elif counter == 3:
-        print(f'Congratulations, {name}')
-        game = False
     else:
         print(f'{answer} is a wrong answer ;(. Correct answer was "{random_even(number)}".')
-        print(f"Let's try again, {name}!")
+        print(f"Let's try again!")
         game = False
+
+    if counter == 3:
+        game = False
+        print(f'Congratulations!')
